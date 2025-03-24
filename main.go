@@ -6,6 +6,12 @@ import (
 	"strconv"
 )
 
+func printNumber(number ...int) {
+	for _, n := range number {
+		fmt.Println(n)
+	}
+}
+
 func changeNumber(n *int) {
 	*n = 100
 }
@@ -21,7 +27,6 @@ func calculateDegrees(val *int, to *string) error {
 	default:
 		return fmt.Errorf("invalid target degree")
 	}
-
 }
 
 func main() {
@@ -38,5 +43,7 @@ func main() {
 	}
 	target := os.Args[2]
 	calculateDegrees(&value, &target)
-	fmt.Println(value)
+	fmt.Println(calculateDegrees(&value, &target))
+	printNumber(1, 2, 3, 4, 5, 1, 2, 3, 4, 5)
+	printNumber([]int{1, 2, 3, 4, 5}...)
 }
